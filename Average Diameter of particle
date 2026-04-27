@@ -1,0 +1,14 @@
+# Finding average particle size
+# List of nanoparticle diameters (in nm)
+diameters = [12.5, 15.3, 10.8, 14.2, 13.7, 11.9, 16.0]
+sum=0
+count=0
+for dia in diameters:
+    sum+=dia 
+    count=count+1
+
+print('no of particles',len(diameters))
+avg=sum/count
+#print('Average diameter of nanoparticle: ',avg)
+#f string literals: placing f before string 
+print(f'Average particle diameter: {avg:.2f} nm')
