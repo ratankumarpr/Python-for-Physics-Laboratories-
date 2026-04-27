@@ -1,0 +1,18 @@
+# X Ray Diffraction Peaks
+import math
+
+# List of 2θ angles (in degrees)
+two_theta_angles = [25.4, 38.2, 45.1, 52.7]
+
+# X-ray wavelength (Cu Kα in Angstroms)
+wavelength = 1.54
+
+# Loop through each angle and compute d-spacing
+print("2θ (degrees) | d-spacing (Å)")
+print("-----------------------------")
+for angle in two_theta_angles:
+    theta=math.radians(angle/2) # convert to radians
+    d_spacing= wavelength/(2*math.sin(theta))
+#    print(d_spacing)
+    print(f"{angle:8.1f} | {d_spacing:8.3f} ")
+    
