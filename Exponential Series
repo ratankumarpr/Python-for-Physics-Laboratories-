@@ -1,0 +1,30 @@
+import math #imports built in math module
+import numpy as np # import library for scientific computing
+
+# give a value of x=2.5
+
+x=-1
+result_builtin=np.exp(x)
+print(f"e^{x}={result_builtin}")
+
+n=int(input('Enter no of terms:'))
+
+def exponential_series(x,n):
+    result=0
+    for i in range(n):
+        factorial=math.factorial(i)
+        term=(x**i)/factorial
+        result+=term
+    return result
+
+exponential_series(1,20)
+
+#testing the series for test values
+
+x_values = [0.5, 1.0, 2.0,-1.0]
+
+for x in x_values:
+    series_result= exponential_series(x,n)
+    exact_result=np.exp(x)
+    error=abs(series_result-exact_result)
+    print(f"x={x:5.1f}|Series: {series_result:10.6f}| Exact:{exact_result:10.6f}|Error{error:.2e}")
