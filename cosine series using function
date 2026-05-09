@@ -1,0 +1,30 @@
+# =========== calculation of Cosine series with Python using function ===============
+# ==================Ratan Kumar=======================================
+
+import math # import math module
+
+x_deg=float(input('Enter x value in degrees')) # input angle in degrees
+n=int(input('Enter no of terms ')) # input no of terms
+print(f'given x value in degrees {x_deg} and no of terms: {n}')
+
+x_rad=math.radians(x_deg) # converts degrees to radians
+cos_x=math.cos(x_rad) # calculated with math module
+print(f"cos({x_deg}) = {cos_x}")
+
+def cosine_series(x_deg,n):
+    cos_taylor=0.0 # initial cosine value
+    for i in range(n):
+        #print(i)
+        sign=(-1)**i
+        # print(odd)
+        factorial=math.factorial(2*i)
+        power=x_rad**(2*i)
+        term=sign*power/factorial
+        cos_taylor+=term 
+    return cos_taylor # calculated with Taylor series
+
+print(f"Taylor series expansion value of cosine is {cosine_series(x_deg,n)}")
+
+# calculation of error 
+error=abs(cos_x-cos_taylor) # calculation of error 
+print(f"value of error is {error:e}")
